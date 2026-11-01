@@ -1,0 +1,18 @@
+Dataset: AT&T Database of Faces (data\raw\att_faces)
+Original image size: 92 x 112 (w x h)
+
+Image dimensions:     78 x 64
+Flattened dimension:  4992
+Number of images N:   400
+Number of people:     40
+Images per person:    [10]
+Data matrix shape:    (4992, 400)
+Labels shape:         (400,)
+Pixel value range:    [0.0196, 0.9098]
+dtype:                float64
+
+Split (seed=42, 3 test images per person):
+  X_train shape:      (4992, 280)   labels_train shape: (280,)
+  X_test shape:       (4992, 120)   labels_test shape:  (120,)
+  people in train:    40
+  people in test:     40

@@ -1,0 +1,20 @@
+FACE RECOGNITION IN PCA SPACE (nearest neighbour, Euclidean distance)
+training faces: 280  (X_train (4992, 280))
+test faces:     120  (X_test (4992, 120))
+people: 40; split seed 42; 3 test images per person
+PCA (mu, U, Sigma) computed from X_train only; test faces projected with the training mu and U_k.
+
+    k   variance   accuracy   correct   mean d   median d    min d    max d
+    5     52.1%     85.8%   103/120    1.498    1.370    0.320    4.966
+   10     64.7%     95.8%   115/120    2.190    2.059    0.460    5.484
+   20     75.4%     97.5%   117/120    2.870    2.618    0.712    7.468
+   30     80.9%     98.3%   118/120    3.282    2.906    0.825    7.753
+   50     87.1%     98.3%   118/120    3.795    3.348    1.001    8.337
+   66     90.1%     97.5%   117/120    4.107    3.700    1.121    8.547
+
+best k = 30: accuracy 98.3% (118/120), variance retained 80.9%
+mean nearest distance at k = 30: correct 3.217, wrong 7.122
+
+misrecognised test faces at k = 30 (test column: true -> predicted, distance):
+    0: s1 -> s16  (d = 6.716)
+   29: s10 -> s38  (d = 7.528)

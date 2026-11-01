@@ -1,0 +1,48 @@
+PCA OF TRAINING FACES (AT&T, seed 42, 7 train images per person)
+image shape (h x w):     78 x 64
+X_train shape (d x N):   (4992, 280)
+mean face mu shape:      (4992, 1)
+X_c shape:               (4992, 280)
+U shape:                 (4992, 280)
+singular values:         280  (r = min(d, N) = 280)
+V^T shape:               (280, 280)
+numerical rank of X_c:   279  (<= N - 1 = 279 because X_c 1 = 0)
+smallest singular value: 1.316e-13  (largest: 78.4529)
+total variance trace(C) = sum lambda_i = 112.3663
+
+  i    sigma_i    lambda_i    EVR_i     cumulative
+  1    78.4529   22.06043    0.1963    0.1963
+  2    67.0215   16.09994    0.1433    0.3396
+  3    46.8427    7.86465    0.0700    0.4096
+  4    43.3065    6.72206    0.0598    0.4694
+  5    40.1949    5.79079    0.0515    0.5210
+  6    33.6721    4.06383    0.0362    0.5571
+  7    29.1406    3.04363    0.0271    0.5842
+  8    27.5167    2.71387    0.0242    0.6084
+  9    24.9540    2.23190    0.0199    0.6282
+ 10    24.1609    2.09228    0.0186    0.6468
+
+Cumulative explained variance (and relative reconstruction error of X_train):
+    k   cumulative   ||X - X_hat||_F / ||X_c||_F
+    5     0.5210     0.6921   (sqrt(1 - cumulative) = 0.6921)
+   10     0.6468     0.5943   (sqrt(1 - cumulative) = 0.5943)
+   20     0.7538     0.4961   (sqrt(1 - cumulative) = 0.4961)
+   30     0.8089     0.4372   (sqrt(1 - cumulative) = 0.4372)
+   50     0.8710     0.3592   (sqrt(1 - cumulative) = 0.3592)
+  100     0.9397     0.2457   (sqrt(1 - cumulative) = 0.2457)
+
+Smallest k reaching each variance threshold:
+  80%: k = 29
+  90%: k = 66
+  95%: k = 114
+  99%: k = 212
+
+Verification:
+  max |row mean of X_c|             = 6.63e-16
+  ||X_c - U S V^T||_F / ||X_c||_F    = 2.36e-15
+  max |U^T U - I|                   = 2.78e-15
+  ||C U_10 - U_10 Lambda_10|| (rel.) = 1.62e-15   (C applied as X_c (X_c^T u) / (N-1))
+  |sum lambda - sum of pixel variances| = 1.42e-14
+  ||X_c 1|| (columns sum to zero)   = 2.31e-12
+  |sum EVR - 1|                     = 0.00e+00
+  ||X - X_hat||_F / ||X||_F, k = 279 = 6.91e-16   (Z shape (279, 280))

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Data: face images are not committed (keep the folder READMEs)
+data/raw/*
+!data/raw/README.md
+data/processed/*
+!data/processed/.gitkeep
+
+# Custom demo: photos of real people and models trained on them are private.
+# Never commit them (keep only the folder README).
+demo_data/*
+!demo_data/README.md
+demo_test/
+mystery/*
+!mystery/README.md
+data/demo_sample/
+outputs/demo/
+
+# Sample figures and results ARE committed so the README can show them
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
